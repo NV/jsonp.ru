@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <title>JSONP wrapper</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<h1><abbr>JSONP</abbr> wrapper</h1>
+<form action="/">
+  <p>
+
+    <input name="url" id="url" type="url" placeholder="http://elv1s.ru/x/hello.js" required><label for="url"><abbr>URL</abbr></label>
+  </p>
+  <p>
+    <input name="callback" id="callback" type="text" placeholder="grab_callback" pattern="[a-zA-Z0-9_]+" value="grab_callback">
+    <label for="callback">Callback</label>
+  </p>
+  <table>
+    <tr>
+      <td class="first"><input type="submit" value="Convert"></td>
+      <td class="last"><a href="http://stackoverflow.com/questions/2131740/online-jsonp-converter-wrapper">What is that?</a></td>
+    </tr>
+  </table>
+</form>
+</body></html>

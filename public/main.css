@@ -1,0 +1,58 @@
+body {
+  font: 24px sans-serif;
+  max-width: 800px;
+  padding: 0 .5em;
+  margin: 0 auto;
+  color: #111;
+  background: #dfd8e5;
+  text-align: center;
+}
+body, a {
+}
+a:link {
+  color: #05C;
+}
+a:hover {
+  color: #C00;
+}
+h1 {
+  font: normal 2em Optima, serif;
+}
+input {
+  font-size: 100%;
+}
+form {
+  position: relative;
+  width: 100%;
+}
+p input {
+  width: 96%;
+}
+label {
+  color: #a39aab;
+  display: inline-block;
+  width: 4em;
+  position: absolute;
+  left: -4.5em;
+  padding-top: .2em;
+  text-align: right;
+  vertical-align: middle;
+}
+input:focus + label {
+  color: #333;
+}
+abbr {
+  letter-spacing: .1em;
+}
+table {
+  width: 98%;
+}
+table td.first {
+  text-align: left;
+}
+table td.first input {
+  margin-left: 5%;
+}
+table td.last {
+  text-align: right;
+}
