@@ -1,4 +1,4 @@
-require 'net/http'
+require 'open-uri'
 require 'json'
 
 use Rack::CommonLogger
@@ -12,17 +12,15 @@ run Proc.new { |env|
   callback = request.params['callback']
   callback = 'grab_callback' if not callback or callback.empty?
   if request.params.include? 'url'
-    response = ''
     headers = {'Content-Type' => 'application/javascript'}
     url = URI.decode request.params['url']
-    if url.index('http://') == 0
-      begin
-        content = (Net::HTTP.get URI.parse url).to_json or 'null'
-      rescue
-        content = 'null'
-      end
-      response = %Q{#{callback}({"body":#{content}});\n}
+    url = "http://#{url}" if url !~ %r{^https?://}
+    begin
+      content = open(url).read.to_json or 'null'
+    rescue
+      content = 'null'
     end
+    response = %Q{#{callback}({"body":#{content}});\n}
     [200, headers, response]
   else
     if env['PATH_INFO'][-1, 1] == '/'
