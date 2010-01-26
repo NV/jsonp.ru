@@ -21,6 +21,7 @@ module Rack
         if url.start_with? 'http://'
           content = (JSON::generate Net::HTTP.get URI.parse url) or 'null'
           response = %Q{#{callback}({"body":#{content}});}
+          headers['Content-Length'] = response.length.to_s
         end
       else
         if env['PATH_INFO'].end_with? '/'
