@@ -1,5 +1,5 @@
-# [jsonp.heroku.com](http://jsonp.heroku.com/)
+# [JSON-P Wrapper](http://jsonpwrapper.com/)
 
-![JSONP - JSON with padding](http://jsonp.heroku.com/intro.png)
+![JSONP - JSON with padding](http://jsonpwrapper.com/intro.png)
 
 Licence: Public domain
