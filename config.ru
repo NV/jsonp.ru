@@ -16,16 +16,14 @@ run Proc.new { |env|
     url = URI.decode request.params['url']
     url = "http://#{url}" if url !~ %r{^https?://}
     begin
-      content = open(url).read.to_json or 'null'
+      body = open(url).read.to_json or 'null'
     rescue
-      content = 'null'
+      body = 'null'
     end
-    response = %Q{#{callback}({"body":#{content}});\n}
+    response = %Q{#{callback}({"body":#{body}});\n}
     [200, headers, response]
   else
-    if env['PATH_INFO'][-1, 1] == '/'
-      env['PATH_INFO'] << 'index.html'
-    end
+    env['PATH_INFO'] << 'index.html' if env['PATH_INFO'][-1, 1] == '/'
     file_server.call env
   end
 }

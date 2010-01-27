@@ -14,7 +14,7 @@ a:hover {
   color: #C00;
 }
 h1 {
-  font: normal 2em Optima, serif;
+  font: normal 2em Optima, Palatino, serif;
 }
 form {
   text-align: left;
