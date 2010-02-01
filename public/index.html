@@ -11,7 +11,7 @@
     <input name="url" id="url" type="url" value="http://elv1s.ru/x/pets.txt" required><label for="url"><abbr>URL</abbr></label>
   </p>
   <p class="field">
-    <input name="callback" id="callback" type="text" placeholder="console.log" pattern="[a-zA-Z0-9_]+">
+    <input name="callback" id="callback" type="text" placeholder="console.log">
     <label for="callback">Callback</label>
   </p>
   <p class="submit-row">
@@ -21,4 +21,8 @@
     <a href="http://github.com/NV/jsonpwrapper.com/">Source code</a>
   </p>
 </form>
+<script src="http://nv.github.com/placeholder.js/placeholder.js"></script>
+<script>
+inputPlaceholder(document.getElementById('callback'));
+</script>
 </body></html>
