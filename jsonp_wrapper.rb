@@ -11,7 +11,7 @@ class JSONPWrapper
     request = Rack::Request.new env
     if request.params.include? 'urls' or request.params.include? 'url'
       callback = request['callback']
-      callback = 'grab_callback' if not callback or callback.empty?
+      callback = 'console.log' if not callback or callback.empty?
       body = ''
       if urls = request['urls']
         body = fetch_many(urls).to_json

@@ -29,13 +29,13 @@ class JSONPWrapperTest < Test::Unit::TestCase
   def test_array_with_one_url
     url = 'http://elv1s.ru/x/pets.txt'
     json = open(url).read.to_json
-    assert_equal %Q{grab_callback({"body":[#{json}]});}, get("/?urls[]=#{url}").body
+    assert_equal %Q{console.log({"body":[#{json}]});}, get("/?urls[]=#{url}").body
   end
 
   def test_array_with_two_urls
-    urls = ['http://elv1s.local/x/pets.txt', 'http://elv1s.local/x/main.js']
+    urls = ['http://elv1s.ru/x/pets.txt', 'http://elv1s.ru/x/main.js']
     json = urls.map {|u| open(u).read}.to_json
-    assert_equal %Q{grab_callback({"body":#{json}});}, get('/', {'urls'=>urls}).body
+    assert_equal %Q{console.log({"body":#{json}});}, get('/', {'urls'=>urls}).body
   end
 
 end
