@@ -30,7 +30,7 @@ class JSONPWrapper
   end
 
   def fetch url
-    raise ArgumentError if not url
+    raise ArgumentError if not url or url.empty?
     url = "http://#{url}" if url !~ %r{^https?://}
     open(url).read
   rescue
@@ -51,6 +51,8 @@ class JSONPWrapper
     elsif urls.size == 1
       urls.map {|u| fetch u}
     end
+  rescue
+    nil
   end
 
 end
