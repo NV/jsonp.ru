@@ -12,16 +12,18 @@ class JSONPWrapper
     if request.params.include? 'urls' or request.params.include? 'url'
       callback = request['callback']
       callback = 'console.log' if not callback or callback.empty?
-      body = ''
+      json = ''
       if urls = request['urls']
-        body = fetch_many(urls).to_json
+        json = fetch_many(urls).map{|a|
+          {'body' => a}
+        }.to_json
       elsif url = request['url']
-        body = fetch(url).to_json
+        json = {'body' => fetch(url)}.to_json
       end
       [
         200,
         {'Content-Type' => 'application/javascript'},
-        %Q{#{callback}({"body":#{body}});}
+        %Q{#{callback}(#{json});}
       ]
     else
       env['PATH_INFO'] << 'index.html' if env['PATH_INFO'][-1, 1] == '/'

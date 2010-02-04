@@ -60,12 +60,11 @@ class JSONPWrapperTest < Test::Unit::TestCase
 
   def test_array_with_one_url
     json = @pets.to_json
-    assert_equal %Q{console.log({"body":[#{json}]});}, get("/?urls[]=#{@pets_url}").body
+    assert_equal %Q{console.log([{"body":#{json}}]);}, get("/?urls[]=#{@pets_url}").body
   end
 
   def test_array_with_two_urls
-    json = [nil, @pets].to_json
-    assert_equal %Q{console.log({"body":#{json}});}, get('/', {'urls'=>[@not_found_url, @pets_url]}).body
+    assert_equal %Q{console.log([{"body":null},{"body":#{@pets.to_json}}]);}, get('/', {'urls'=>[@not_found_url, @pets_url]}).body
   end
 
 end
