@@ -3,6 +3,7 @@
 <head>
   <title>JSONP wrapper</title>
   <link rel="stylesheet" href="main.css">
+  <link rel="alternate" type="application/atom+xml" href="http://github.com/feeds/NV/commits/jsonpwrapper.com" title="JSONP Wrapper: Changelog">
 </head>
 <body>
 <h1><abbr>JSONP</abbr> wrapper</h1>
@@ -41,7 +42,7 @@ var form = document.forms[0];
 form.onsubmit = function disableEmptyInputs(){
   var i = form.length;
   while (i--) {
-    if (!form[i].value || form[i].type === 'submit') {
+    if (form[i].value === '' || form[i].type === 'submit') {
       form[i].disabled = true;
     }
   }
