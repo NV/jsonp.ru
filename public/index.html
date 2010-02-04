@@ -7,20 +7,47 @@
 <body>
 <h1><abbr>JSONP</abbr> wrapper</h1>
 <form action="/">
-  <p class="field">
-    <input name="url" id="url" type="url" value="http://elv1s.ru/x/pets.txt" required><label for="url"><abbr>URL</abbr></label>
-  </p>
-  <p class="field">
-    <input name="callback" id="callback" type="text" placeholder="console.log">
-    <label for="callback">Callback</label>
-  </p>
-  <p class="submit-row">
+  <div class="field url-row">
+    <input name="urls[]" value="http://elv1s.ru/x/pets.txt" required><label><abbr>URL</abbr>s</label>
+    <div id="url_dummy" class="hidden last"><input name="urls[]"></div>
+    <button onclick="add_one_more_url(this); return false;">+</button>
+  </div>
+  <div class="field">
+    <input name="callback" type="text" placeholder="console.log">
+    <label>Callback</label>
+  </div>
+  <div class="submit-row">
     <input type="submit" value="Convert">
     <a href="http://stackoverflow.com/questions/2131740/online-jsonp-converter-wrapper">What is that?</a>
     &middot;
     <a href="http://github.com/NV/jsonpwrapper.com/">Source code</a>
-  </p>
+  </div>
 </form>
+<script>
+function add_one_more_url(button) {
+  var twin = document.getElementById('url_dummy').cloneNode(true);
+  twin.removeAttribute('id');
+  var input = twin.firstChild;
+  button.parentNode.insertBefore(twin, button);
+  setTimeout(function(){
+    twin.className = 'last';
+    input.focus();
+  }, 0);
+  setTimeout(function(){
+    twin.className = '';
+  }, 100);
+}
+var form = document.forms[0];
+form.onsubmit = function disableEmptyInputs(){
+  var i = form.length;
+  while (i--) {
+    if (!form[i].value || form[i].type === 'submit') {
+      form[i].disabled = true;
+    }
+  }
+  return true;
+};
+</script>
 <script src="http://nv.github.com/placeholder.js/placeholder.js"></script>
 <script>
 inputPlaceholder(document.getElementById('callback'));

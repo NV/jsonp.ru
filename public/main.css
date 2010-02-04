@@ -18,9 +18,13 @@ h1 {
 }
 form {
   text-align: left;
+  padding-left: 4em;
 }
 input {
   font-size: 100%;
+}
+.field {
+  margin-bottom: 1em;
 }
 .field input {
   float: right;
@@ -30,16 +34,40 @@ label {
   color: #a39aab;
   display: inline-block;
   width: 4em;
-  margin-left: -5em;
+  margin-left: -4.5em;
   padding-top: .2em;
   text-align: right;
-  vertical-align: middle;
 }
 input:focus + label {
   color: #333;
 }
 abbr {
   letter-spacing: .1em;
+}
+.url-row {
+  width: 100%;
+  margin-left: -4em;
+  padding-left: 4em;
+}
+.url-row div input {
+  margin-top: .5em;
+}
+.url-row div {
+  -webkit-transition: height .1s ease-out;
+  -moz-transition: height .1s ease-out;
+  -o-transition: height .1s ease-out;
+  transition: height .1s ease-out;
+  width: 100%;
+  height: 2em;
+}
+#url_dummy {
+  display: none;
+}
+.url-row div.last {
+  overflow: hidden;
+}
+.url-row div.hidden {
+  height: 0;
 }
 .submit-row {
   text-align: right;
