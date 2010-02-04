@@ -9,15 +9,15 @@
 <h1><abbr>JSONP</abbr> wrapper</h1>
 <form action="/">
   <div class="field url-row">
-    <input name="urls[]" value="http://elv1s.ru/x/pets.txt" required><label><abbr>URL</abbr>s</label>
-    <div id="url_dummy" class="hidden last"><input name="urls[]"></div>
+    <input name="urls[]" type="url" value="http://elv1s.ru/x/pets.txt" required><label><abbr>URL</abbr>s</label>
+    <div id="url_dummy" class="hidden last"><input type="url" name="urls[]"></div>
     <button onclick="add_one_more_url(this); return false;">+</button>
   </div>
   <div class="field">
     <input name="callback" type="text" placeholder="console.log">
     <label>Callback</label>
   </div>
-  <div class="submit-row">
+  <div class="field submit-row">
     <input type="submit" value="Convert">
     <a href="http://stackoverflow.com/questions/2131740/online-jsonp-converter-wrapper">What is that?</a>
     &middot;

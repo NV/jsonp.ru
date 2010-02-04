@@ -16,26 +16,24 @@ a:hover {
 h1 {
   font: normal 2em Optima, Palatino, serif;
 }
-form {
-  text-align: left;
-  padding-left: 4em;
-}
 input {
   font-size: 100%;
 }
 .field {
+  position: relative;
   margin-bottom: 1em;
+  padding: 0 1.5em 0 4.5em;
 }
-.field input {
-  float: right;
+input[type=url], input[type=text] {
   width: 99%;
 }
 label {
+  position: absolute;
   color: #a39aab;
   display: inline-block;
   width: 4em;
-  margin-left: -4.5em;
-  padding-top: .2em;
+  left: 0;
+  top: .2em;
   text-align: right;
 }
 input:focus + label {
@@ -44,10 +42,10 @@ input:focus + label {
 abbr {
   letter-spacing: .1em;
 }
-.url-row {
-  width: 100%;
-  margin-left: -4em;
-  padding-left: 4em;
+.url-row button {
+  position: absolute;
+  right: 0;
+  bottom: 8px;
 }
 .url-row div input {
   margin-top: .5em;
