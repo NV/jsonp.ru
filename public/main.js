@@ -29,3 +29,4 @@ window.onunload = function enableEmptyInputs(){
     }
   }
 };
+history.navigationMode = 'fast';
