@@ -10,11 +10,18 @@ body {
 a:link {
   color: #05C;
 }
-a:hover {
+a:visited {
+  color: #a58cba;
+}
+a:hover,
+a:focus {
   color: #C00;
 }
 h1 {
   font: normal 2em Optima, Palatino, serif;
+}
+form {
+  color: #a39aab;
 }
 input {
   font-size: 100%;
@@ -29,7 +36,6 @@ input[type=url], input[type=text] {
 }
 label {
   position: absolute;
-  color: #a39aab;
   display: inline-block;
   width: 4em;
   left: 0;
