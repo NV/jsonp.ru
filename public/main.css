@@ -1,5 +1,5 @@
 body {
-  font: 24px sans-serif;
+  font: 16px sans-serif;
   max-width: 800px;
   padding: 0 .5em;
   margin: 0 auto;
@@ -18,7 +18,13 @@ a:focus {
   color: #C00;
 }
 h1 {
-  font: normal 2em Optima, Palatino, serif;
+  font: normal 3em Optima, Palatino, serif;
+  margin: 1em 0 0;
+}
+h2 {
+  margin: .5em 0 2em;
+  font: normal 16px Optima, Palatino, serif;
+  color: #a39aab;
 }
 form {
   color: #a39aab;
@@ -29,15 +35,20 @@ input {
 .field {
   position: relative;
   margin-bottom: 1em;
-  padding: 0 1.5em 0 4.5em;
+  padding: 0 36px 0 110px;
 }
-input[type=url], input[type=text] {
+.url-row,
+.callback-row {
+  font-size: 150%;
+}
+.url-row input,
+.callback-row input {
   width: 99%;
 }
 label {
   position: absolute;
   display: inline-block;
-  width: 4em;
+  width: 96px;
   left: 0;
   top: .2em;
   text-align: right;
@@ -47,6 +58,7 @@ input:focus + label {
 }
 abbr {
   letter-spacing: .1em;
+  border-bottom: none;
 }
 .url-row button {
   position: absolute;

@@ -7,14 +7,15 @@
 </head>
 <body>
 <h1><abbr>JSONP</abbr> wrapper</h1>
+<h2>Everything to <abbr title="JSON with Padding">JSONP</abbr> converter. Gateway for cross-domain requests.</h2>
 <form action="/">
   <div class="field url-row">
     <input name="urls[]" type="url" value="http://elv1s.ru/x/pets.txt" required><label><abbr>URL</abbr>s</label>
     <div id="url_dummy" class="hidden last"><input type="url" name="urls[]"></div>
     <button onclick="add_one_more_url(this); return false;">+</button>
   </div>
-  <div class="field">
-    <input name="callback" type="text" placeholder="console.log">
+  <div class="field callback-row">
+    <input name="callback" id="callback" type="text" placeholder="console.log">
     <label>Callback</label>
   </div>
   <div class="field submit-row">
@@ -24,31 +25,7 @@
     <a href="http://github.com/NV/jsonpwrapper.com/">Source code</a>
   </div>
 </form>
-<script>
-function add_one_more_url(button) {
-  var twin = document.getElementById('url_dummy').cloneNode(true);
-  twin.removeAttribute('id');
-  var input = twin.firstChild;
-  button.parentNode.insertBefore(twin, button);
-  setTimeout(function(){
-    twin.className = 'last';
-    input.focus();
-  }, 0);
-  setTimeout(function(){
-    twin.className = '';
-  }, 100);
-}
-var form = document.forms[0];
-form.onsubmit = function disableEmptyInputs(){
-  var i = form.length;
-  while (i--) {
-    if (form[i].value === '' || form[i].type === 'submit') {
-      form[i].disabled = true;
-    }
-  }
-  return true;
-};
-</script>
+<script src="main.js" async></script>
 <script src="http://nv.github.com/placeholder.js/placeholder.js"></script>
 <script>
 inputPlaceholder(document.getElementById('callback'));
