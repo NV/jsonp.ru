@@ -13,12 +13,12 @@ class JSONPWrapper
       callback = request['callback']
       callback = 'console.log' if not callback or callback.empty?
       json = ''
-      if urls = request['urls']
-        json = fetch_many(urls).map{|a|
+      if request.params.include? 'urls'
+        json = fetch_many(request['urls']).map{|a|
           {'body' => a}
         }.to_json
-      elsif url = request['url']
-        json = {'body' => fetch(url)}.to_json
+      else
+        json = {'body' => fetch(request['url'])}.to_json
       end
       [
         200,
