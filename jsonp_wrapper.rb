@@ -23,7 +23,7 @@ class JSONPWrapper
       [
         200,
         {'Content-Type' => 'application/javascript'},
-        %Q{#{callback}(#{json});}
+        [%Q{#{callback}(#{json});}]
       ]
     else
       env['PATH_INFO'] << 'index.html' if env['PATH_INFO'][-1, 1] == '/'

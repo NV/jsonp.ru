@@ -1,7 +1,8 @@
 require 'test/unit'
 require 'rack/test'
 require 'fake_web'
-$LOAD_PATH.unshift File.join(Dir.pwd, '..')
+dir = File.dirname __FILE__
+$LOAD_PATH.unshift File.join(dir, '..')
 require 'jsonp_wrapper'
 
 class JSONPWrapperTest < Test::Unit::TestCase
