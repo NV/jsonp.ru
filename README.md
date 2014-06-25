@@ -1,5 +1,5 @@
-# [JSON-P Wrapper](http://jsonp.ru/)
+# JSON-P Wrapper
 
-![JSONP - JSON with padding](http://jsonp.ru/intro.png)
+Depricated, use [https://github.com/NV/jsonpwrapper.com](NV/jsonpwrapper.com) instead.
 
 Licence: Public domain
